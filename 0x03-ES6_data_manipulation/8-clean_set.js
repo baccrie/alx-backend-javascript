@@ -1,4 +1,3 @@
-//A tmp
 export default function cleanSet(set, str) {
   if (!str || !str.length) return '';
   let values = '';
