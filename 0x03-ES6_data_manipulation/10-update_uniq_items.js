@@ -1,11 +1,6 @@
-// A tmp
-export default function updateUniqueItems(groceries) {
-  if (Object.getPrototypeOf(groceries) !== Map.prototype) throw TypeError('Cannot process');
-
-  groceries.forEach((val, key) => {
-    if (val === 1) {
-      groceries.set(key, 100);
-    }
-  });
-  return groceries;
+export default function updateUniqueItems(map) {
+  if (!(map instanceof Map)) throw Error('Cannot process');
+  const copy = map;
+  for (const [k, v] of map.entries()) if (v === 1) copy.set(k, 100);
+  return copy;
 }
