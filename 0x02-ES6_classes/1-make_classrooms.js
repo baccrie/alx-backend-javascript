@@ -2,7 +2,7 @@
 import ClassRoom from './0-classroom.js';
 
 // eslint-disable-next-line no-unused-vars
-function initializeRooms() {
+export default function initializeRooms() {
   const val = [new ClassRoom(19), new ClassRoom(20), new ClassRoom(24)];
   return val;
 }
