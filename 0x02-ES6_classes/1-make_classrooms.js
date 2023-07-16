@@ -3,5 +3,6 @@ import ClassRoom from './0-classroom.js';
 
 // eslint-disable-next-line no-unused-vars
 function initializeRooms() {
-  return [new ClassRoom(19), new ClassRoom(20), new ClassRoom(24)];
+  const val = [new ClassRoom(19), new ClassRoom(20), new ClassRoom(24)];
+  return val;
 }
