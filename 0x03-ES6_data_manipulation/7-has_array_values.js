@@ -1,4 +1,12 @@
-export default function hasValuesFromArray(set, array) {
-  for (const i of array) if (!set.has(i)) return false;
-  return true;
+export default function hasValuesFromArray(sets, arry) {
+  // eslint-disable-next-line no-unused-vars
+  let i;
+  for (const val of arry) {
+    if (!sets.has(val)) {
+      i = false;
+    } else {
+      i = true;
+    }
+  }
+  return i;
 }
