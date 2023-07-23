@@ -1,7 +1,10 @@
-export default function getStudentsByLocation(students, city) {
-  // check arg is an array before using filter...
-  if (Object.getPrototypeOf(students) === Array.prototype) {
-    return students.filter((items) => items.location === city);
+/* eslint-disable array-callback-return */
+export default function getStudentsByLocation(getListStudents, city) {
+  // eslint-disable-next-line consistent-return
+  function filterCity(student) {
+    return student.location === city;
   }
-  return [];
+
+  const filtered = getListStudents.filter(filterCity);
+  return filtered;
 }
