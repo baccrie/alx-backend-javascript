@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-import Building from './5-building.js'
+// eslint-disable-next-line import/extensions
+import Building from './5-building.js';
 
 export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
@@ -7,10 +8,10 @@ export default class SkyHighBuilding extends Building {
     this._floors = floors;
   }
 
-  set floors(floor) {
+  set floors(floors) {
     this._floors = floors;
   }
-  
+
   get floors() {
     return this._floors;
   }
@@ -20,4 +21,3 @@ export default class SkyHighBuilding extends Building {
     return (`Evacuate slowly the ${this.floors} floors`);
   }
 }
-
