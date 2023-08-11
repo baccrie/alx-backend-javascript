@@ -1,7 +1,7 @@
 export default function cleanSet(sets, startswith) {
   let retVal = '';
   if (startswith === '') {
-    retVal = sets;
+    retVal = '';
   } else {
     for (const i of sets) {
       if (i.startsWith(startswith)) {
