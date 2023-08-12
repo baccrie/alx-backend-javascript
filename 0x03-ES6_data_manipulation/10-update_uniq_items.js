@@ -1,11 +1,10 @@
-export default function updateUniqueItems(mapsArg)  {
+export default function updateUniqueItems(mapsArg) {
+  if (Object.getPrototypeOf(mapsArg) !== Map.prototype) {
+    throw TypeError('Cannot process');
+  }
   for (const [key, val] of mapsArg) {
     if (val === 1) {
-      try {
-        mapsArg.set(key, 100);
-      } catch (err) {
-        throw new Error('Cannot process');
-      }
+      mapsArg.set(key, 100);
     }
   }
 }
