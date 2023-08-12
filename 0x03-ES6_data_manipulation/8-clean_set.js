@@ -5,11 +5,8 @@ export default function cleanSet(sets, start) {
   } else {
     for (const i of sets) {
       if (i && i.startsWith(start)) {
-        retVal += i.replace(start, '-');
+        retVal += retVal.length === 0 ? i.replace(start, '') : i.replace(start, '-');
       }
-    }
-    if (retVal.length) {
-      retVal = retVal.slice(1);
     }
   }
   return retVal;
