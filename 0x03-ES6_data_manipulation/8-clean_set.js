@@ -1,7 +1,7 @@
 /* eslint-disable no-else-return */
 export default function cleanSet(sets, start) {
   let retVal = '';
-  if (start === '' || !start) {
+  if (!start.length || !start) {
     return retVal;
   } else {
     for (const i of sets) {
