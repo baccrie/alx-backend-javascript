@@ -4,11 +4,13 @@ export default function cleanSet(sets, start) {
     retVal = '';
   } else {
     for (const i of sets) {
-      if (i.startsWith(start)) {
-        retVal += `${i.slice(start.length)}-`;
+      if (i && i.startsWith(start)) {
+        retVal += i.replace(start, '-');
       }
     }
-    retVal = retVal.slice(0, -1);
+    if (retVal.length) {
+      retVal = retVal.slice(1);
+    }
   }
   return retVal;
 }
