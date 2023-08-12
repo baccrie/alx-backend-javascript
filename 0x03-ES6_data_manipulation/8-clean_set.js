@@ -1,11 +1,11 @@
-export default function cleanSet(sets, startswith) {
+export default function cleanSet(sets, start) {
   let retVal = '';
-  if (startswith === '') {
+  if (start === '') {
     retVal = '';
   } else {
     for (const i of sets) {
-      if (i.startsWith(startswith)) {
-        retVal += `${i.slice(startswith.length)}-`;
+      if (i.startsWith(start)) {
+        retVal += `${i.slice(start.length)}-`;
       }
     }
     retVal = retVal.slice(0, -1);
