@@ -1,8 +1,7 @@
-// 5. Advanced types Part 1
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
-  workDirectorTasks(): string;
+  workDirectorTasks(): string; 
 }
 
 interface TeacherInterface {
@@ -11,49 +10,32 @@ interface TeacherInterface {
   workTeacherTasks(): string;
 }
 
-export class Director implements DirectorInterface {
-  workFromHome = () => 'Working from home';
-  getCoffeeBreak = () => 'Getting a coffee break';
-  workDirectorTasks = () => 'Getting to director tasks';
-}
+class Director implements DirectorInterface {
+  workFromHome() {
+    return "Working from home"
+  }
+  getCoffeeBreak() {
+    return "Getting a coffee break";
+  }
 
-export class Teacher implements TeacherInterface {
-  workFromHome = () => 'Cannot work from home';
-  getCoffeeBreak = () => 'Cannot have a break';
-  workTeacherTasks = () => 'Getting to work';
-}
-
-export const createEmployee = (salary: number | string): Teacher | Director => Number(salary) < 500 ? new Teacher() : new Director()
-
-//console.log(createEmployee(200));
-//console.log(createEmployee(1000));
-//console.log(createEmployee('$500'));
-
-// 6. Creating functions specific to employees
-export function isDirector(employee: TeacherInterface | DirectorInterface): employee is Director {
-  return (employee as Director).workDirectorTasks !== undefined;
-}
-
-export function executeWork(employee: DirectorInterface | TeacherInterface): string {
-  let res = undefined;
-  (isDirector(employee)) ? res = employee.workDirectorTasks() : res = employee.workTeacherTasks();
-  //console.log(res);
-  return res;
-}
-
-//executeWork(createEmployee(200));
-//executeWork(createEmployee(1000));
-
-// 7. String literal types
-type Subjects = "Math" | "History";
-
-export function teachClass(todayClass: Subjects): string {
-  if (todayClass === "Math") {
-    return "Teaching Math";
-  } else if (todayClass === "History") {
-    return "Teaching History";
+  workDirectorTasks() {
+    return "Getting to director tasks";
   }
 }
 
-console.log(teachClass("Math"));
-console.log(teachClass("History"));
+class Teacher implements TeacherInterface {
+  workFromHome() {
+    return "Cannot work from home"
+  }
+  getCoffeeBreak() {
+    return "Cannot have a break";
+  }
+
+  workTeacherTasks() {
+    return "Getting to work";
+  }
+}
+
+function createEmployee(salary: number | string): TeacherInterface | DirectorInterface {
+  return (typeof(salary) === "number" && salary < 500) ? new Teacher(): new Director();
+}
