@@ -1,48 +1,43 @@
-'use strict';
-// 0. Creating an interface for a student
 interface Student {
-  firstName: string;
-  lastName: string;
-  age: number;
-  location: string;
+  firstName: string,
+  lastName: string,
+  age: number,
+  location: string
 }
 
-const firstSudent: Student = {
-  firstName: 'Javier',
-  lastName: 'Patarroyo',
-  age: 44,
-  location: 'Bogotá',
-}
-
-const secondSudent: Student = {
-  firstName: 'Andrés',
-  lastName: 'Garzón',
+const student_1: Student = {
+  firstName: 'Adewale',
+  lastName: 'Adelakun',
   age: 45,
-  location: 'Colombia',
+  location: 'Alaska',
 }
 
-const studentsList: Array<Student> = [ firstSudent, secondSudent ];
+const student_2: Student = {
+  firstName: 'Excel',
+  lastName: 'Kelechi',
+  age: 32,
+  location: 'NewYork'
+}
 
-const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
-const table: HTMLTableElement = document.createElement("table");
-const thead: HTMLTableSectionElement = document.createElement("thead");
-const tbody: HTMLTableSectionElement = document.createElement("tbody");
-const rowHead: HTMLTableRowElement = thead.insertRow(0);
-const cell1Head: HTMLTableCellElement = rowHead.insertCell(0);
-const cell2Head: HTMLTableCellElement = rowHead.insertCell(1);
+let studentsList: [Student, Student] = [student_1, student_2];
 
-cell1Head.innerHTML = "firstName";
-cell2Head.innerHTML = "location";
-table.append(thead);
 
-studentsList.forEach((student) => {
-  const row: HTMLTableRowElement = tbody.insertRow(0);
-  const cell1: HTMLTableCellElement = row.insertCell(0);
-  const cell2: HTMLTableCellElement = row.insertCell(1);
+    let table = document.createElement('table');
+    document.body.appendChild(table); // Drew the main table node on the document
 
-  cell1.innerHTML = student.firstName;
-  cell2.innerHTML = student.location;
-});
+    for (let i = 0; i<4; i++) { 
+        let tr = document.createElement('tr'); //Create 3 <tr> elements assigned to a unique letiable BUT need a working alternative for 'tr[i]'
+        table.appendChild(tr); // Append to <table> node
 
-table.append(tbody);
-body.append(table);
+        for (const stud of studentsList) {
+            // for name
+            let tdname = document.createElement('td');
+            tdname.innerHTML = stud.firstName;
+            tr.appendChild(tdname); // Take string from placeholder letiable and append it to <tr> node
+
+            //for location
+            let tdlocation = document.createElement('td');
+            tdlocation.innerHTML = stud.firstName;
+            tr.appendChild(tdlocation); // Take string from placeholder letiable and append it to <tr> node
+        }
+    }
